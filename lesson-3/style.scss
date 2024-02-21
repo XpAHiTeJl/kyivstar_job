@@ -19,7 +19,7 @@ li {
 }
 header {
   background: url(./public/images/image-header.jpg);
-  background-size: contain;
+  background-size: cover;
   height: 100vh;
   color: $primary-text-color;
   .navigation {
@@ -55,7 +55,49 @@ header {
       text-transform: uppercase;
     }
     img {
-      padding-top: $padding-xl;
+      padding-top: $padding-xxxl;
+    }
+  }
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+
+  .main-text {
+    @include d-flex(center, center, column);
+
+    width: 50%;
+    height: 100vh;
+    div {
+      @include d-flex(center, start, column);
+      width: 45%;
+      article {
+        font-family: $ff-secondary;
+        font-size: $fs-l;
+        font-weight: 500;
+      }
+      p,
+      a {
+        padding-top: $padding-s;
+      }
+      a {
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 6px solid;
+        border-color: yellow;
+      }
+    }
+  }
+  .main-wrapper {
+    width: 100vh;
+
+    img {
+    }
+    &_transform {
+      // background: url(./public/images/image-transform.jpg);
+      // background-size: cover;
+      // width: 500px;
+      // height: 500px;
     }
   }
 }

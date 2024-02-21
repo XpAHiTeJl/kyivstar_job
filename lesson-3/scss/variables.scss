@@ -1,6 +1,10 @@
 @font-face {
   font-family: "hust";
-  src: url(./../public/fonts/Intel\ One\ Mono.zip);
+  src: url(./../public/fonts/black-3.ttf);
+}
+@font-face {
+  font-family: "bust";
+  src: url(./../public/fonts//DELL\ CYR.ttf);
 }
 
 // PADDING
@@ -29,7 +33,7 @@ $fs-xxs: 9px;
 
 // FONT-FAMILY
 $ff-primary: "hust";
-$ff-secondary: "";
+$ff-secondary: "bust";
 
 // COLOR
 $primary-text-color: #ffffff;
