@@ -1,0 +1,61 @@
+@import "./scss/mixins.scss";
+@import "./scss/variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+#app {
+  font-family: $ff-primary;
+}
+header {
+  background: url(./public/images/image-header.jpg);
+  background-size: contain;
+  height: 100vh;
+  color: $primary-text-color;
+  .navigation {
+    padding-top: $margin-xl;
+    @include d-flex(space-between, center);
+    &-logo {
+      margin-left: $margin-xl;
+      font-size: $fs-m;
+    }
+    nav {
+      margin-right: $margin-xxl;
+      font-size: $fs-s;
+
+      width: 350px;
+      ul {
+        @include d-flex(space-between, center);
+      }
+      button {
+        width: 110px;
+        height: 50px;
+        border-radius: $br-box;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+    }
+  }
+  .navigation-aside {
+    @include d-flex(center, center, column);
+    h1 {
+      padding-top: $padding-xxxl;
+      font-size: $fs-xl;
+      text-transform: uppercase;
+    }
+    img {
+      padding-top: $padding-xl;
+    }
+  }
+}
