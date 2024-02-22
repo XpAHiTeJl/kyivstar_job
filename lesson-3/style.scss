@@ -62,8 +62,8 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
-
-  .main-text {
+  .main-text-transform,
+  .main-text-stand {
     @include d-flex(center, center, column);
 
     width: 50%;
@@ -88,12 +88,103 @@ main {
       }
     }
   }
-  .main-wrapper {
+  .main-text-stand {
+    div {
+      a {
+        border-color: red;
+      }
+    }
+  }
+  .main-wrapper-transform {
     width: 50%;
+    height: 100vh;
+    background-image: url(./public/images/image-transform.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .main-wrapper-stand {
+    width: 50%;
+    height: 100vh;
+    background-image: url(./public/images/image-stand-out.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .main-wrapper-graphic {
+    width: 50%;
+    height: 100vh;
+    background-image: url(./public/images/image-graphic-design.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include d-flex(center, center, column);
+    &_text {
+      text-align: center;
+      width: 500px;
+      margin-top: $margin-xxxl;
+      article {
+        font-weight: 900;
+        font-size: $fs-xl;
+        margin-bottom: 50px;
+      }
+      p {
+        font-size: $fs-m;
+        text-align: center;
+      }
+    }
+  }
+  .main-wrapper-photography {
+    width: 50%;
+    height: 100vh;
+    background-image: url(./public/images/image-photography.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include d-flex(center, center, column);
+    &_text {
+      text-align: center;
+      width: 500px;
+      margin-top: $margin-xxxl;
+      article {
+        font-weight: 900;
+        font-size: $fs-xl;
+        margin-bottom: 50px;
+      }
+      p {
+        font-size: $fs-m;
+        text-align: center;
+      }
+    }
+  }
+  .testimonials {
+    @include d-flex(center, center, column);
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(255, 247, 236);
+    &-container {
+      @include d-flex(center, center, row);
+    }
 
-    img {
-      width: 100%;
-      height: 100%;
+    article {
+      text-transform: uppercase;
+      margin-bottom: $margin-xxl;
+      font-size: $fs-xl;
+    }
+    &-person {
+      @include d-flex(center, center, column);
+      img {
+        border-radius: $br-img;
+        margin-bottom: $margin-xxl;
+      }
+      p {
+        width: 60%;
+        text-align: center;
+        margin-bottom: $margin-xxl;
+      }
+      span {
+        color: rgb(138, 113, 83);
+      }
     }
   }
 }
