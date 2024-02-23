@@ -31,9 +31,9 @@ header {
     }
     nav {
       margin-right: $margin-xxl;
-      font-size: $fs-s;
+      font-size: $fs-m;
 
-      width: 350px;
+      width: 450px;
       ul {
         @include d-flex(space-between, center);
       }
@@ -44,6 +44,7 @@ header {
         border: none;
         text-transform: uppercase;
         font-weight: 900;
+        cursor: pointer;
       }
     }
   }
@@ -65,7 +66,6 @@ main {
   .main-text-transform,
   .main-text-stand {
     @include d-flex(center, center, column);
-
     width: 50%;
     height: 100vh;
     div {
@@ -78,7 +78,7 @@ main {
       }
       p,
       a {
-        padding-top: $padding-s;
+        margin-top: $margin-s;
       }
       a {
         font-weight: bold;
@@ -185,6 +185,41 @@ main {
       span {
         color: rgb(138, 113, 83);
       }
+    }
+  }
+  .main-wrapper-gallery {
+    background-color: cadetblue;
+    @include d-flex(center, center, row);
+    div {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+footer {
+  background-color: cadetblue;
+  @include d-flex(center, center, column);
+  article {
+    padding-top: $padding-xl;
+    font-size: $fs-l;
+    font-weight: bold;
+  }
+  nav {
+    ul {
+      @include d-flex(center, center, row);
+      li {
+        margin: 50px 30px 80px 30px;
+      }
+    }
+  }
+  .social {
+    margin-bottom: $margin-xl;
+    button {
+      border: none;
+      background-color: cadetblue;
+      margin: $margin-xs;
+      cursor: pointer;
     }
   }
 }
