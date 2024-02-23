@@ -73,8 +73,8 @@ main {
       width: 45%;
       article {
         font-family: $ff-secondary;
-        font-size: $fs-l;
-        font-weight: 500;
+        font-size: $fs-xl;
+        font-weight: 900;
       }
       p,
       a {
@@ -121,11 +121,12 @@ main {
     @include d-flex(center, center, column);
     &_text {
       text-align: center;
-      width: 500px;
+      width: 400px;
       margin-top: $margin-xxxl;
       article {
-        font-weight: 900;
+        font-family: $ff-secondary;
         font-size: $fs-xl;
+        font-weight: 900;
         margin-bottom: 50px;
       }
       p {
@@ -144,11 +145,13 @@ main {
     @include d-flex(center, center, column);
     &_text {
       text-align: center;
-      width: 500px;
+      width: 400px;
       margin-top: $margin-xxxl;
+
       article {
-        font-weight: 900;
+        font-family: $ff-secondary;
         font-size: $fs-xl;
+        font-weight: 900;
         margin-bottom: 50px;
       }
       p {
