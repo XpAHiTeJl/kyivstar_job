@@ -19,8 +19,10 @@ li {
 }
 header {
   background: url(./public/images/image-header.jpg);
-  background-size: cover;
   height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: $primary-text-color;
   .navigation {
     padding-top: $margin-xl;
@@ -201,12 +203,28 @@ main {
     }
   }
   .main-wrapper-gallery {
-    background-color: cadetblue;
+    width: 100%;
     @include d-flex(center, center, row);
-    div {
-      img {
-        width: 100%;
-      }
+    .milkbottles,
+    .orange,
+    .cone,
+    .sugarcubes {
+      width: 50%;
+      height: 100vh;
+      background-size: cover;
+    }
+
+    .milkbottles {
+      background-image: url(./public/images/image-gallery-milkbottles.jpg);
+    }
+    .orange {
+      background-image: url(./public/images/image-gallery-orange.jpg);
+    }
+    .cone {
+      background-image: url(./public/images/image-gallery-cone.jpg);
+    }
+    .sugarcubes {
+      background-image: url(./public/images/image-gallery-sugarcubes.jpg);
     }
   }
 }

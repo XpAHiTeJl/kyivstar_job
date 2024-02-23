@@ -42,7 +42,7 @@
       @include d-flex(center, center, column);
       width: 100%;
       .main-wrapper-stand {
-        background-image: url(./public/images/image-stand-out.jpg);
+        background-image: url(./../public/images/mobile/image-stand-out.jpg);
         background-size: cover;
         height: 50vh;
         width: 100%;
@@ -107,7 +107,7 @@
       }
     }
     .main-wrapper-photography {
-      background-image: url(./public/images/image-photography.jpg);
+      background-image: url(./../public/images/mobile/image-photography.jpg);
       background-size: cover;
       height: 50vh;
       width: 100%;
@@ -160,12 +160,16 @@
       }
     }
     .main-wrapper-gallery {
-      background-color: cadetblue;
+      width: 100%;
       @include d-flex(center, center, row);
-      div {
-        img {
-          width: 100%;
-        }
+      flex-wrap: wrap;
+      .milkbottles,
+      .orange,
+      .cone,
+      .sugarcubes {
+        width: 50%;
+        height: 25vh;
+        background-size: cover;
       }
     }
   }
