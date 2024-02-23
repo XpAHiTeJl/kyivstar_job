@@ -34,7 +34,6 @@ header {
     nav {
       margin-right: $margin-xxl;
       font-size: $fs-m;
-
       width: 450px;
       ul {
         @include d-flex(space-between, center);
@@ -48,6 +47,9 @@ header {
         font-weight: 900;
         cursor: pointer;
       }
+    }
+    .burger {
+      display: none;
     }
   }
   .navigation-aside {

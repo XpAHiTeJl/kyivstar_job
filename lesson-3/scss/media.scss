@@ -12,7 +12,46 @@
         font-size: $fs-s;
       }
       nav {
-        display: none;
+        margin-right: $margin-xxl;
+        font-size: $fs-xs;
+        width: 200px;
+        @include d-flex(center, center);
+        ul {
+          @include d-flex(center, center);
+          visibility: hidden;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin: 10px 0 0 10px;
+          width: 300px;
+          li {
+          }
+        }
+        button {
+          width: 50px;
+          height: 25px;
+          border-radius: $br-box;
+          border: none;
+          text-transform: capitalize;
+          font-weight: 300;
+          cursor: pointer;
+        }
+      }
+      .burger {
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+        display: block;
+        background: transparent;
+        width: 30px;
+        height: 30px;
+        border: none;
+      }
+
+      .active {
+        visibility: visible;
       }
     }
     .navigation-aside {
