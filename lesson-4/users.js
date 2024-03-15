@@ -47,15 +47,24 @@ UsersService.prototype.renderUsersList = function (list) {
     
     </figure>
     `;
+
     const AditionalData = async () => {
-      itemElement.removeEventListener("click", AditionalData);
+      //   itemElement.removeEventListener("click", AditionalData);
+
       const tetailItem = document.createElement("div");
       tetailItem.className = "chat-person";
       tetailItem.textContent = "Loading...";
+      const namechat = document.querySelector(".chat-person");
+      if (namechat) {
+        namechat.remove();
+      }
+      console.log(namechat);
 
       chatinfo.appendChild(tetailItem);
 
       const detail = await this.getUserById(value.id);
+      console.log(value.id);
+
       tetailItem.innerHTML = `
         <figure class="minimal-card">
             <img src="https://api.lorem.space/image/face?${imgUrlParams.toString()}"/>
@@ -83,6 +92,7 @@ UsersService.prototype.renderUsersList = function (list) {
         </div>
       `;
     };
+
     itemElement.addEventListener("click", AditionalData);
 
     listelement.appendChild(itemElement);
