@@ -1,19 +1,12 @@
-// // Створення екземпляр прототипа UserService
-// const userService = new UserService(
-//   "https://jsonplaceholder.typicode.com/users"
-// );
+import { UsersService } from "./users";
 
-function App() {
-  /**
-   * Виклик метода із прототипа userService для отримання списка юзерів.
-   * const users = await userService....
-   */
-  //
-  //
-  /**
-   * Відображення списку юзерів на сторінці
-   * userService.renderUsersList....
-   */
-}
-
-App();
+const allUsers = new UsersService("https://jsonplaceholder.typicode.com/users");
+allUsers
+  .getAllUsers()
+  .then((list) => {
+    console.log(list);
+    allUsers.renderUsersList(list);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
