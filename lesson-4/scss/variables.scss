@@ -1,0 +1,67 @@
+// @font-face {
+//   font-family: "hust";
+//   src: url(./../public/fonts/Barlow-SemiBold.ttf);
+// }
+// @font-face {
+//   font-family: "bust";
+//   src: url(./../public/fonts/Fraunces-VariableFont_SOFT\WONK\opsz\wght.ttf);
+// }
+
+// PADDING
+$padding-xxxl: 100px;
+$padding-xxl: 60px;
+$padding-xl: 50px;
+$padding-l: 40px;
+$padding-m: 30px;
+$padding-s: 20px;
+$padding-xs: 10px;
+// MARGIN
+$margin-text: 200px;
+$margin-xxxl: 500px;
+$margin-xxl: 60px;
+$margin-xl: 50px;
+$margin-l: 40px;
+$margin-m: 30px;
+$margin-s: 20px;
+$margin-xs: 10px;
+// FONT-FACE
+$fs-xxl: 80px;
+$fs-xl: 50px;
+$fs-l: 30px;
+$fs-m: 20px;
+$fs-s: 14px;
+$fs-xs: 12px;
+$fs-xxs: 9px;
+
+// FONT-FAMILY
+$ff-primary: "hust";
+$ff-secondary: "bust";
+
+// COLOR
+$primary-text-color: #ffffff;
+$secondary-text-color: #000000;
+$third-text-color: rgb(194, 185, 185);
+$forth-text-color: #5c7178;
+
+// BG
+$primary-bg: black;
+$secondary-bg: #d9d9d9;
+$thrid-bg: #ffffff;
+
+// TRANSITION
+$transition-speed: 500ms;
+$transition-speed-low: 300ms;
+
+// Box-shadow
+$box-shadow-x: 8px 11px 8px;
+$box-shadow-m: 6px 8px 6px;
+$box-shadow-s: 4px 6px 4px;
+
+// border radius
+$br-header: 0 0 1rem 1rem;
+$br-sidebar: 1rem;
+$br-img: 100px;
+$br-box: 25px;
+
+// letter-spacing
+$ls-x: 5px;

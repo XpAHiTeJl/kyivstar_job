@@ -1,0 +1,49 @@
+@import "./scss/mixin.scss";
+@import "./scss/variables.scss";
+body {
+}
+.container {
+  @include d-flex(center, normal);
+
+  width: 100%;
+
+  #chat-box {
+    #user {
+      font-size: 40px;
+    }
+    width: 50%;
+    .minimal-card {
+      @include d-flex(normal, normal);
+      .minimal-info {
+        @include d-flex(center, normal, column);
+        margin-left: $margin-m;
+      }
+    }
+    #message-list {
+      list-style-type: none;
+    }
+  }
+  #chat-info {
+    width: 50%;
+    .minimal-card {
+      @include d-flex(normal, normal);
+      .minimal-info {
+        @include d-flex(center, normal, column);
+        margin-left: $margin-m;
+      }
+    }
+    .card-person-info {
+      @include d-flex(center, normal, row);
+      width: 100%;
+      .category,
+      .category-value {
+        @include d-flex(center, normal, column);
+        width: 50%;
+      }
+    }
+  }
+  img {
+    border-radius: 50%;
+    text-align: center;
+  }
+}
