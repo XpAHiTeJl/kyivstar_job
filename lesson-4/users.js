@@ -58,12 +58,10 @@ UsersService.prototype.renderUsersList = function (list) {
       if (namechat) {
         namechat.remove();
       }
-      console.log(namechat);
 
       chatinfo.appendChild(tetailItem);
 
       const detail = await this.getUserById(value.id);
-      console.log(value.id);
 
       tetailItem.innerHTML = `
         <figure class="minimal-card">
