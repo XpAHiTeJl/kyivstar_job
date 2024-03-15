@@ -52,6 +52,7 @@ UsersService.prototype.renderUsersList = function (list) {
       const tetailItem = document.createElement("div");
       tetailItem.className = "chat-person";
       tetailItem.textContent = "Loading...";
+
       chatinfo.appendChild(tetailItem);
 
       const detail = await this.getUserById(value.id);
