@@ -19,6 +19,7 @@ UsersService.prototype.getUserById = async function (id) {
   try {
     const response = await fetch(`${this.baseUrl}/${id}`);
     const data = response.json();
+
     return data;
   } catch (err) {
     console.erroe("Ошибка получение ИД", err);
