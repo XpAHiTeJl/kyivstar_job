@@ -13,7 +13,8 @@ UsersService.prototype.getAllUsers = async function () {
     return [];
   }
 };
-
+console.log("---------------Task1---------------");
+// !TASK1
 UsersService.prototype.renderUsersList = function (list) {
   list.forEach((value) => {
     const person = {
