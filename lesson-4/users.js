@@ -53,16 +53,21 @@ UsersService.prototype.renderUsersList = function (list) {
       //   itemElement.removeEventListener("click", AditionalData);
 
       const tetailItem = document.createElement("div");
+      const loader = document.createElement("p");
+      loader.textContent = "Loading...";
+      loader.className = "loaders";
+
       tetailItem.className = "chat-person";
-      tetailItem.textContent = "Loading...";
       const namechat = document.querySelector(".chat-person");
       if (namechat) {
         namechat.remove();
       }
 
       chatinfo.appendChild(tetailItem);
+      chatinfo.appendChild(loader);
 
       const detail = await this.getUserById(value.id);
+      chatinfo.removeChild(loader);
 
       tetailItem.innerHTML = `
         <figure class="minimal-card">
