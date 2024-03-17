@@ -4,42 +4,76 @@ body {
 }
 .container {
   @include d-flex(center, normal);
-
   width: 100%;
-
   #chat-box {
-    #user {
-      font-size: 40px;
-    }
+    @include d-flex(normal, normal, column);
     width: 50%;
+    border-right: 1px solid;
+
+    #user {
+      font-size: $fs-xl;
+      font-weight: 800;
+      margin-left: $margin-xl;
+    }
+    #message-list {
+      padding: 0;
+      list-style-type: none;
+    }
     .minimal-card {
       @include d-flex(normal, normal);
+      margin-top: $margin-l;
+      border-bottom: 1px solid;
+      padding-bottom: $padding-m;
       .minimal-info {
         @include d-flex(center, normal, column);
         margin-left: $margin-m;
+        span {
+          font-size: $fs-m;
+        }
+        strong {
+          font-size: $fs-l;
+        }
       }
-    }
-    #message-list {
-      list-style-type: none;
     }
   }
   #chat-info {
-    width: 50%;
-    .minimal-card {
-      @include d-flex(normal, normal);
-      .minimal-info {
-        @include d-flex(center, normal, column);
-        margin-left: $margin-m;
-      }
-    }
     .card-person-info {
+      font-size: $fs-m;
       @include d-flex(center, normal, row);
-      width: 100%;
       .category,
       .category-value {
         @include d-flex(center, normal, column);
         width: 50%;
+        .email {
+          text-decoration: underline;
+          text-underline-offset: 5px;
+          color: blue;
+        }
       }
+      .category {
+        margin-left: $margin-xxl;
+      }
+    }
+    .minimal-card {
+      @include d-flex(normal, normal);
+      margin-top: $margin-xxl;
+
+      .minimal-info {
+        @include d-flex(center, normal, column);
+        margin-left: $margin-m;
+        span {
+          font-size: $fs-m;
+        }
+        strong {
+          font-size: $fs-l;
+        }
+      }
+    }
+    #chat-person {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   img {

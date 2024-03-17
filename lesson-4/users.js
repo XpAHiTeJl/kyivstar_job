@@ -75,16 +75,16 @@ UsersService.prototype.renderUsersList = function (list) {
         <div class="card-person-info">
 
             <div class="category">
-                 <p >Company: </p>
-                 <p >Phone:</p>
-                 <p >Email:</p>
-                 <p >Address:</p>
+                 <p >Company </p>
+                 <p >Phone</p>
+                 <p >Email</p>
+                 <p >Address</p>
             </div>
 
             <div class="category-value">
                 <p>${detail.company.name}</p>
                 <p>${detail.phone}</p>
-                <p>${detail.email}</p>
+                <p class="email">${detail.email}</p>
                 <p>${addressString}</p>
             </div>
                 
