@@ -15,3 +15,11 @@ ul {
   display: flex;
   flex-direction: column;
 }
+.minimal-card {
+  img {
+    border-radius: 15%;
+  }
+}
+.minimal-info {
+  margin-left: 20px;
+}

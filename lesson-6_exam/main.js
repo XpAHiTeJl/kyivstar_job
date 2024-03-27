@@ -11,7 +11,7 @@ UsersService.prototype.getAllUsers = async function () {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data;
+    return data.users;
   } catch (err) {
     console.error("Error fetching users:", err);
     return [];
@@ -27,10 +27,10 @@ UsersService.prototype.renderUsersList = function (list) {
 
     itemElement.innerHTML = `
       <figure>
-        <img src="https://api.lorem.space/image/face?w=320&h=320&r=${value.id}"/>
-        <figcaption class="minimal-info">
-          <strong> ${value.name}</strong>
-          <span> Company: ${value.company.name}</span>
+        <img class="p-3 rounded-5" style="max-width: 250px" src="https://api.lorem.space/image/face?w=320&h=320&r=${value.id}"/>
+        <figcaption class="minimal-info  ">
+          <strong> ${value.firstName}</strong>
+          <span class="text-secondary"> ${value.company.title}</span>
         </figcaption>
       </figure>
     `;
@@ -39,7 +39,7 @@ UsersService.prototype.renderUsersList = function (list) {
   });
 };
 
-const allUsers = new UsersService("https://jsonplaceholder.typicode.com/users");
+const allUsers = new UsersService("https://dummyjson.com/users");
 allUsers
   .getAllUsers()
   .then((list) => {
@@ -47,5 +47,5 @@ allUsers
     allUsers.renderUsersList(list);
   })
   .catch((err) => {
-    console.error("Error rendering user list:", err);
+    // console.error("Error rendering user list:", err);
   });
