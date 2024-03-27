@@ -23,3 +23,24 @@ ul {
 .minimal-info {
   margin-left: 20px;
 }
+
+.user-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-item h2 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.user-item p {
+  margin-bottom: 5px;
+}
+
+.user-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

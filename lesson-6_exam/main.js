@@ -76,3 +76,64 @@ allUsers
   .catch((err) => {
     // console.error("Error rendering user list:", err);
   });
+
+// class DataFetcher {
+//   constructor() {
+//     this.url = "https://dummyjson.com/users";
+//   }
+//   async fetchUsersData() {
+//     try {
+//       const r = await this.fetchUsersData(this.url);
+//       const data = r.json();
+//       console.log(data);
+//       return data.users;
+//     } catch (error) {}
+//   }
+//   simplifyUser(users) {
+//     return users.reduce((accum, user) => {
+//       accum.push({
+//         id: user.id,
+//         fullName: `${user.firstName}`,
+//       });
+
+//       return accum;
+//     }, []);
+//   }
+// }
+// const data = new DataFetcher();
+// console.log(data);
+
+class UserList {
+  constructor() {
+    this.url = "https://dummyjson.com/users";
+    this.users = [];
+  }
+
+  async fetchUsers() {
+    const response = await fetch(this.url);
+    const data = await response.json();
+    this.users = data.users;
+  }
+
+  generateHTML() {
+    let html = "";
+    for (const user of this.users) {
+      html += `<li class="user-item">
+                  <h2>${user.firstName} ${user.lastName}</h2>
+                  <p>${user.email}</p>
+                  <p>${user.phone}</p>
+                  <img class="p-3 rounded-5" style="max-width: 250px" src="https://api.lorem.space/image/face?w=320&h=320&r=${user.id}"/>
+              </li>`;
+    }
+    return html;
+  }
+
+  async render() {
+    await this.fetchUsers();
+    const html = this.generateHTML();
+    document.getElementById("user-list").innerHTML = html;
+  }
+}
+
+const userList = new UserList();
+userList.render();
