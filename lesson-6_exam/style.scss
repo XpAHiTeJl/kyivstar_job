@@ -5,3 +5,13 @@ body {
 ul {
   list-style-type: none;
 }
+.blue-text {
+  color: blue;
+  font-weight: bold;
+}
+
+.minimal-card,
+.minimal-info {
+  display: flex;
+  flex-direction: column;
+}
