@@ -37,6 +37,33 @@ UsersService.prototype.renderUsersList = function (list) {
 
     listelement.appendChild(itemElement);
   });
+
+  // !person
+
+  const graphicname = document.querySelector("#graphic-name");
+  const itemTerry = document.querySelector(".personTerry");
+
+  const itemSheldon = document.querySelector(".personSheldon");
+
+  const namesTerry = list.slice(0, 1).map((user) => user.firstName);
+  namesTerry.forEach((name) => {
+    itemTerry.innerHTML = `
+    <strong class="text-secondary"> ${name}</strong>
+    <p> Not so one-time payments</p>
+    <p> 9:00AM - 10:00AM PST</p>
+    `;
+    graphicname.appendChild(itemTerry);
+  });
+
+  const namesSheldon = list.slice(0, 2).map((user) => user.firstName);
+  namesSheldon.forEach((name) => {
+    itemSheldon.innerHTML = `
+    <strong class="text-secondary"> ${name}</strong>
+    <p> The finer print</p>
+    <p> 10:00AM - 11:00AM PST</p>
+    `;
+    graphicname.appendChild(itemSheldon);
+  });
 };
 
 const allUsers = new UsersService("https://dummyjson.com/users");
