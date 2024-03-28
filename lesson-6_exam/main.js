@@ -92,9 +92,9 @@ class UserList {
   generateHTML() {
     let html = "";
     for (const user of this.users.slice(0, 6)) {
-      html += `<li class="minimal-info pt-4 ">
+      html += `<li class="minimal-info ms-4 pt-4 ">
                   <img class="p-3  rounded-5" style="max-width: 230px" src="https://api.lorem.space/image/face?w=320&h=320&r=${user.id}"/>
-                  <h5 class="ps-3">${user.firstName} ${user.lastName}</h5>
+                  <h5 class="ps-3 h2 ">${user.firstName} ${user.lastName}</h5>
                   <p class="ps-3 text-secondary">${user.company.department}</p>
               </li>`;
     }
@@ -303,10 +303,9 @@ nineames.renderNames();
 // !mail send
 
 class EmailForm {
-  constructor(formElement) {
-    this.formElement = formElement;
-    this.emailInput = formElement.querySelector('input[type="email"]');
-    this.submitButton = formElement.querySelector("button");
+  constructor() {
+    this.emailInput = document.querySelector(".sendmail");
+    this.submitButton = document.querySelector(".btn");
 
     this.submitButton.addEventListener("click", this.onSubmit.bind(this));
   }
@@ -326,7 +325,7 @@ class EmailForm {
     // Отправка email методом POST
 
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://otpravka.pochta.ru/");
+    xhr.open("POST", "https:----");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(`email=${email}`);
 
@@ -339,6 +338,3 @@ class EmailForm {
     };
   }
 }
-
-const formElement = document.querySelector(".email-form");
-const emailForm = new EmailForm(formElement);

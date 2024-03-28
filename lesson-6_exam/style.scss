@@ -1,26 +1,19 @@
-.footer-text-footer,
-.speakers {
+body,
+.footer-text-footer {
   background-image: url(./public/images/background.6c3571e0.jpg);
   background-size: cover;
 }
-ul {
+.speakers,
+footer,
+.main-text-main {
+  background-color: white;
+}
+
+ul,
+li {
   list-style-type: none;
 }
 .blue-text {
   color: blue;
   font-weight: bold;
-}
-
-.minimal-card,
-.minimal-info {
-  display: flex;
-  flex-direction: column;
-}
-.minimal-card {
-  img {
-    border-radius: 15%;
-  }
-}
-.minimal-info {
-  margin-left: 20px;
 }
