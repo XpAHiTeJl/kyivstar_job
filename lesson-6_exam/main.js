@@ -77,6 +77,8 @@ import "./style.scss";
 //     // console.error("Error rendering user list:", err);
 //   });
 
+// !User List main x6 person
+
 class UserList {
   constructor() {
     this.url = "https://dummyjson.com/users";
@@ -107,9 +109,9 @@ class UserList {
     document.getElementById("personal").innerHTML = html;
   }
 }
-
 const userList = new UserList();
 userList.render();
+
 // !Person drop-Main-data
 class TerryNamesList {
   constructor() {
