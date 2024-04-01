@@ -69,3 +69,227 @@ console.log(cart2.getItems());
 
 console.log(cart1 === cart2);
 console.log("--------------------------------------------------------");
+
+//!Lesson---------3
+
+class OrderState {
+  constructor(order) {
+    this.order = order;
+  }
+
+  cancelOrder() {
+    throw new Error("Цей метод не підтримується в поточному стані");
+  }
+
+  requestReturn() {
+    // throw new Error("Цей метод не підтримується в поточному стані");
+  }
+}
+
+// Клас стану "В обробці"
+class ProcessingState extends OrderState {
+  cancelOrder() {
+    console.log("Замовлення скасовано.");
+    this.order.setState(new CancelledState(this.order));
+  }
+}
+
+// Клас стану "Очікує на оплату"
+class PendingPaymentState extends OrderState {
+  cancelOrder() {
+    console.log("Замовлення скасовано.");
+    this.order.setState(new CancelledState(this.order));
+  }
+}
+
+// Клас стану "Відправлено"
+class ShippedState extends OrderState {
+  requestReturn() {
+    console.log("Запит на повернення товару зроблено.");
+    this.order.setState(new ReturnRequestedState(this.order));
+  }
+}
+
+// Клас стану "Доставлено"
+class DeliveredState extends OrderState {
+  requestReturn() {
+    console.log("Запит на повернення товару зроблено.");
+    this.order.setState(new ReturnRequestedState(this.order));
+  }
+}
+
+// Клас стану "Скасовано"
+class CancelledState extends OrderState {}
+
+// Клас стану "Запит на повернення"
+class ReturnRequestedState extends OrderState {}
+
+// Клас замовлення
+class Order {
+  constructor() {
+    this.state = new ProcessingState(this);
+  }
+
+  setState(state) {
+    this.state = state;
+  }
+
+  cancelOrder() {
+    this.state.cancelOrder();
+  }
+
+  requestReturn() {
+    this.state.requestReturn();
+  }
+}
+
+// Приклад використання:
+const order = new Order();
+
+order.cancelOrder(); // Замовлення скасовано.
+
+order.requestReturn(); // Помилка: Цей метод не підтримується в поточному стані
+
+order.setState(new ShippedState(order));
+order.requestReturn(); // Запит на повернення товару зроблено.
+
+console.log("--------------------------------------------------------");
+
+
+
+
+
+
+
+class Order {
+  constructor(id) {
+    this.id = id;
+    this.currentState = new ProcessingState(this);
+  }
+
+  changeState(state) {
+    this.currentState = state;
+    console.log(`Замовлення #${this.id} перейшло до стану ${state.constructor.name}`);
+  }
+
+  // Делегування методів до стану
+  cancel() {
+    this.currentState.cancel();
+  }
+
+  pay() {
+    this.currentState.pay();
+  }
+
+  ship() {
+    this.currentState.ship();
+  }
+
+  deliver() {
+    this.currentState.deliver();
+  }
+
+  return() {
+    this.currentState.return();
+  }
+}
+
+// Стани замовлення
+
+class ProcessingState {
+  constructor(order) {
+    this.order = order;
+  }
+
+  cancel() {
+    console.log(`Замовлення #${this.order.id} скасовано`);
+    this.order.changeState(new CancelledState(this.order));
+  }
+
+  pay() {
+    console.log(`Замовлення #${this.order.id} оплачено`);
+    this.order.changeState(new AwaitingPaymentState(this.order));
+  }
+
+  ship() {
+    console.log(`Замовлення #${this.order.id} не може бути відправлено, поки не буде оплачено`);
+  }
+
+  deliver() {
+    console.log(`Замовлення #${this.order.id} не може бути доставлено, поки не буде оплачено`);
+  }
+
+  return() {
+    console.log(`Замовлення #${this.order.id} не може бути повернено, поки не буде оплачено`);
+  }
+}
+
+class AwaitingPaymentState {
+  constructor(order) {
+    this.order = order;
+  }
+
+  cancel() {
+    console.log(`Замовлення #${this.order.id} скасовано`);
+    this.order.changeState(new CancelledState(this.order));
+  }
+
+  pay() {
+    console.log(`Замовлення #${this.order.id} вже оплачено`);
+  }
+
+  ship() {
+    console.log(`Замовлення #${this.order.id} відправлено`);
+    this.order.changeState(new ShippedState(this.order));
+  }
+
+  deliver() {
+    console.log(`Замовлення #${this.order.id} не може бути доставлено, поки не буде відправлено`);
+  }
+
+  return() {
+    console.log(`Замовлення #${this.order.id} не може бути повернено, поки не буде відправлено`);
+  }
+}
+
+class ShippedState {
+  constructor(order) {
+    this.order = order;
+  }
+
+  cancel() {
+    console.log(`Замовлення #${this.order.id} не може бути скасовано, бо вже відправлено`);
+  }
+
+  pay() {
+    console.log(`Замовлення #${this.order.id} вже оплачено`);
+  }
+
+  ship() {
+    console.log(`Замовлення #${this.order.id} вже відправлено`);
+  }
+
+  deliver() {
+    console.log(`Замовлення #${this.order.id} доставлено`);
+    this.order.changeState(new DeliveredState(this.order));
+  }
+
+  return() {
+    console.log(`Замовлення #${this.order.id} не може бути повернено, поки не буде доставлено`);
+  }
+}
+
+class DeliveredState {
+  constructor(order) {
+    this.order = order;
+  }
+}
+
+  cancel() {
+    console.log(`Замовлення #${this.order.id} не може бути скасовано, бо вже доставлено`);
+  }
+
+  pay() {
+  console.log(`Замовлення #${this.order.id}`)
+  }
+  
