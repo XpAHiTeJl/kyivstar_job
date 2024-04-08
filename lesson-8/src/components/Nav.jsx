@@ -72,6 +72,8 @@
 
 // !---
 import React, { useState, useEffect } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const DataFetchingComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -95,13 +97,13 @@ const DataFetchingComponent = () => {
 
   const handleNext = () => {
     setCurrentIndex(currentIndex + 1);
-    // fetchData(currentIndex + 1);
+    fetchData(currentIndex + 1);
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
-      // fetchData(currentIndex - 1);
+      fetchData(currentIndex - 1);
     } else {
       alert("Already at the beginning!");
     }
@@ -112,8 +114,7 @@ const DataFetchingComponent = () => {
   }, [currentIndex]);
 
   return (
-    <div>
-      <h2>Posts</h2>
+    <div className="p-3 mb-2 bg-light w-25 ">
       {posts.map((post) => (
         <div key={post.id}>
           <h3>{post.title}</h3>
@@ -121,8 +122,12 @@ const DataFetchingComponent = () => {
         </div>
       ))}
       <div>
-        <button onClick={handlePrevious}>Назад</button>
-        <button onClick={handleNext}>Вперед</button>
+        <button className=" w-25" onClick={handlePrevious}>
+          <IoIosArrowBack />
+        </button>
+        <button className=" w-25" onClick={handleNext}>
+          <IoIosArrowForward />
+        </button>
       </div>
     </div>
   );
