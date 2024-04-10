@@ -5,12 +5,12 @@ import Lowermain from "./components/lowermain";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header d-flex justify-content-between">
+    <div className="App  ">
+      <header className=" container min-vw-100  p-0 m-0 d-flex justify-content-between">
         <Nav />
         <Slider />
       </header>
-      <main>
+      <main className="container p-0 m-0">
         <Lowermain />
       </main>
     </div>

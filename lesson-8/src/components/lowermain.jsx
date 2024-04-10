@@ -3,7 +3,7 @@ import "./Lowermain.css";
 
 export default function Lowermain() {
   return (
-    <section className="d-flex  " style={{ height: "230px" }}>
+    <section className=" container min-vw-100 d-flex   m-0 p-0 ">
       <div className="leftphoto  " style={{ width: "30%" }}></div>
       <div className="centerphoto  p-5" style={{ width: "40%" }}>
         <span className="texttitle fs-2 text-uppercase ">

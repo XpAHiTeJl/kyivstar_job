@@ -44,8 +44,8 @@ const DataFetchingComponent = () => {
 
   return (
     <div
-      className="position-relative d-flex justify-content-center align-items-center  bg-light "
-      style={{ width: "40%" }}
+      className=" container position-relative d-flex justify-content-center align-items-center  bg-light w-50 "
+      // style={{ width: "50%" }}
     >
       {posts.map((post) => (
         <div className=" w-75 d-flex flex-column  " key={post.id}>
@@ -61,7 +61,7 @@ const DataFetchingComponent = () => {
           </a>
         </div>
       ))}
-      <div className="position-absolute bottom-0 start-0 ">
+      <div className=" position-absolute bottom-0 start-0 ">
         <button className="buttons  border border-0" onClick={handlePrevious}>
           <IoIosArrowBack
             style={{ width: "70px", height: "70px", color: "white" }}
