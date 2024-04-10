@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import "./slider.css";
 
 const DataFetchingComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -41,19 +42,26 @@ const DataFetchingComponent = () => {
   }, [currentIndex]);
 
   return (
-    <div className="  bg-light w-25 ">
+    <div
+      className="position-relative d-flex justify-content-center align-items-center  bg-light "
+      style={{ width: "40%" }}
+    >
       {posts.map((post) => (
-        <div key={post.id}>
-          <h3>{post.title}</h3>
+        <div className=" w-75 d-flex flex-column  " key={post.id}>
+          <h3>{post.title[0].toUpperCase() + post.title.slice(1)}</h3>
           <p>{post.body}</p>
         </div>
       ))}
-      <div>
-        <button className=" " onClick={handlePrevious}>
-          <IoIosArrowBack style={{ width: "50px", height: "50px" }} />
+      <div className="position-absolute bottom-0 start-0 ">
+        <button className="buttons   border border-0" onClick={handlePrevious}>
+          <IoIosArrowBack
+            style={{ width: "70px", height: "70px", color: "white" }}
+          />
         </button>
-        <button className=" " onClick={handleNext}>
-          <IoIosArrowForward style={{ width: "50px", height: "50px" }} />
+        <button className="buttons   border border-0" onClick={handleNext}>
+          <IoIosArrowForward
+            style={{ width: "70px", height: "70px", color: "white" }}
+          />
         </button>
       </div>
     </div>
