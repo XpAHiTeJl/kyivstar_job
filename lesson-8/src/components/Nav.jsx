@@ -1,25 +1,25 @@
-// import React from "react";
+import React from "react";
 
-// const ListItems = [
-//   { name: "Home", url: "/" },
-//   { name: "News", url: "/" },
-//   { name: "Popular", url: "/" },
-//   { name: "Category", url: "/" },
-// ];
+const ListItems = [
+  { name: "Home", url: "/" },
+  { name: "News", url: "/" },
+  { name: "Popular", url: "/" },
+  { name: "Category", url: "/" },
+];
 
-// export default function Nav() {
-//   return (
-//     <nav>
-//       <ul>
-//         {ListItems.map(({ name, url }) => (
-//           <li key={name}>
-//             <a href={url}>{name}</a>
-//           </li>
-//         ))}
-//       </ul>
-//     </nav>
-//   );
-// }
+export default function Nav() {
+  return (
+    <nav>
+      <ul>
+        {ListItems.map(({ name, url }) => (
+          <li key={name}>
+            <a href={url}>{name}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
 // !----
 // import React, { useState, useEffect } from "react";
@@ -69,68 +69,3 @@
 // };
 
 // export default App;
-
-// !---
-import React, { useState, useEffect } from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
-
-const DataFetchingComponent = () => {
-  const [posts, setPosts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const fetchData = async (index) => {
-    try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts?_start=${index}&_limit=1`
-      );
-      const data = await response.json();
-      if (data.length > 0) {
-        setPosts(data);
-      } else {
-        alert("No more posts available!");
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  const handleNext = () => {
-    setCurrentIndex(currentIndex + 1);
-    fetchData(currentIndex + 1);
-  };
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      fetchData(currentIndex - 1);
-    } else {
-      alert("Already at the beginning!");
-    }
-  };
-
-  useEffect(() => {
-    fetchData(currentIndex);
-  }, [currentIndex]);
-
-  return (
-    <div className="p-3 mb-2 bg-light w-25 ">
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
-        </div>
-      ))}
-      <div>
-        <button className=" w-25" onClick={handlePrevious}>
-          <IoIosArrowBack />
-        </button>
-        <button className=" w-25" onClick={handleNext}>
-          <IoIosArrowForward />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default DataFetchingComponent;
