@@ -1,6 +1,7 @@
 import "./App.css";
 import Nav from "./components/Nav";
 import Slider from "./components/Slider";
+import Lowermain from "./components/lowermain";
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
         <Nav />
         <Slider />
       </header>
+      <main>
+        <Lowermain />
+      </main>
     </div>
   );
 }

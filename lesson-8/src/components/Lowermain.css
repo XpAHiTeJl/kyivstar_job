@@ -1,0 +1,17 @@
+.leftphoto {
+    background-image: url(./../../public/images/image-about-dark.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rightphoto {
+    background-image: url(./../../public/images/image-about-light.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texttitle {
+    letter-spacing: 3px;
+}

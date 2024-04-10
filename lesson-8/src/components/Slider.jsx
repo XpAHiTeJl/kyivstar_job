@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+
 import "./slider.css";
 
 const DataFetchingComponent = () => {
@@ -33,7 +34,7 @@ const DataFetchingComponent = () => {
       setCurrentIndex(currentIndex - 1);
       fetchData(currentIndex - 1);
     } else {
-      alert("Already at the beginning!");
+      alert("Листайте в другую сторону =)");
     }
   };
 
@@ -48,17 +49,25 @@ const DataFetchingComponent = () => {
     >
       {posts.map((post) => (
         <div className=" w-75 d-flex flex-column  " key={post.id}>
-          <h3>{post.title[0].toUpperCase() + post.title.slice(1)}</h3>
-          <p>{post.body}</p>
+          <h3 className="fs-1">
+            {post.title[0].toUpperCase() + post.title.slice(1)}
+          </h3>
+          <p className="fs-6">
+            {post.body[0].toUpperCase() + post.body.slice(1)}
+          </p>
+          <a className="text-arrow " href="www">
+            shop now
+            <i class="fa-solid fa-arrow-right-long ps-5"></i>
+          </a>
         </div>
       ))}
       <div className="position-absolute bottom-0 start-0 ">
-        <button className="buttons   border border-0" onClick={handlePrevious}>
+        <button className="buttons  border border-0" onClick={handlePrevious}>
           <IoIosArrowBack
             style={{ width: "70px", height: "70px", color: "white" }}
           />
         </button>
-        <button className="buttons   border border-0" onClick={handleNext}>
+        <button className="buttons  border border-0" onClick={handleNext}>
           <IoIosArrowForward
             style={{ width: "70px", height: "70px", color: "white" }}
           />

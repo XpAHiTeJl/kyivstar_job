@@ -4,3 +4,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.navlink {
+    text-decoration: none;
+
+}
+
+.navlink:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
