@@ -16,11 +16,6 @@
         left: 140px;
     }
 
-    .bg-image {
-        background-image: url(./../../public/images/image-about-dark.jpg);
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
 
     .navlink {
         display: none;

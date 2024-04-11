@@ -24,4 +24,10 @@
         position: absolute;
         left: 40px;
     }
+
+    .bg-image {
+        background-image: url(./../../public/images/desktop-image-hero-1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
