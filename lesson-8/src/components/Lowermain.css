@@ -24,6 +24,10 @@
     width: 30%;
 }
 
+.centerphoto {
+    width: 40%;
+}
+
 @media (max-width : 320px) {
 
     .leftphoto,
