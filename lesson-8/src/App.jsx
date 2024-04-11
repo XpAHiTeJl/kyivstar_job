@@ -1,4 +1,5 @@
 import "./App.css";
+import "./components/media.css";
 import Nav from "./components/Nav";
 import Slider from "./components/Slider";
 import Lowermain from "./components/lowermain";

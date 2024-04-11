@@ -43,10 +43,7 @@ const DataFetchingComponent = () => {
   }, [currentIndex]);
 
   return (
-    <div
-      className=" container position-relative d-flex justify-content-center align-items-center  bg-light w-50 "
-      // style={{ width: "50%" }}
-    >
+    <div className="sliders container position-relative d-flex justify-content-center align-items-center  bg-light w-50 ">
       {posts.map((post) => (
         <div className=" w-75 d-flex flex-column  " key={post.id}>
           <h3 className="fs-1">
@@ -61,7 +58,7 @@ const DataFetchingComponent = () => {
           </a>
         </div>
       ))}
-      <div className=" position-absolute bottom-0 start-0 ">
+      <div className="buttoncreating position-absolute bottom-0 start-0 ">
         <button className="buttons  border border-0" onClick={handlePrevious}>
           <IoIosArrowBack
             style={{ width: "70px", height: "70px", color: "white" }}

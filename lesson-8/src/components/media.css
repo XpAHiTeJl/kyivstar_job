@@ -1,0 +1,46 @@
+@media (max-width : 320px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .logo {
+        position: absolute;
+        left: 140px;
+    }
+
+    .bg-image {
+        background-image: url(./../../public/images/image-about-dark.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .navlink {
+        display: none;
+    }
+
+    .sliders {
+        width: 100% !important;
+        padding-top: 100px;
+    }
+
+    .buttoncreating {
+        top: -73px;
+        transform: translateX(155px)
+    }
+
+    .text-arrow {
+        padding-top: 50px;
+        padding-bottom: 150px;
+    }
+
+    .mainsection {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+
+}
