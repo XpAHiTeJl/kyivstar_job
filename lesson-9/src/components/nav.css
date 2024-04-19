@@ -4,6 +4,25 @@
     background-size: cover;
 }
 
+.shop {
+    background-image: url(./../../public/images/desktop-image-hero-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about {
+    background-image: url(./../../public/images/desktop-image-hero-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact {
+    background-image: url(./../../public/images/desktop-image-hero-4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .navlink {
     text-decoration: none;
 
