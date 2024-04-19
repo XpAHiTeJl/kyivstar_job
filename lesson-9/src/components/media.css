@@ -1,0 +1,60 @@
+@media (max-width : 320px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .headermenu {
+        padding-top: 30px;
+    }
+
+    .logo {
+        position: absolute;
+        left: 140px;
+    }
+
+
+    .navlink {
+        display: none;
+    }
+
+    .sliders {
+        width: 100% !important;
+        padding-top: 100px;
+    }
+
+    .buttoncreating {
+        top: -73px;
+        transform: translateX(155px)
+    }
+
+    .text-arrow {
+        padding-top: 50px;
+        padding-bottom: 150px;
+    }
+
+    .mainsection {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .centerphoto {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .texttitle {
+        letter-spacing: 1px !important;
+        font-size: 18px !important;
+        font-weight: 600;
+        padding-bottom: 25px;
+    }
+
+
+
+
+}
