@@ -17,16 +17,20 @@ const DataFetchingComponent = () => {
       if (data.length > 0) {
         setPosts(data);
       } else {
-        alert("No more posts available!");
+        console.log("Not more posts");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  const handleNext = () => {
-    setCurrentIndex(currentIndex + 1);
-    fetchData(currentIndex + 1);
+  const handleNext = async () => {
+    try {
+      await fetchData(currentIndex + 1);
+      setCurrentIndex((prev) => prev + 1);
+    } catch (err) {
+      setCurrentIndex(currentIndex);
+    }
   };
 
   const handlePrevious = () => {
@@ -34,7 +38,7 @@ const DataFetchingComponent = () => {
       setCurrentIndex(currentIndex - 1);
       fetchData(currentIndex - 1);
     } else {
-      alert("Листайте в другую сторону =)");
+      console.log("Листай в другую сторону");
     }
   };
 
