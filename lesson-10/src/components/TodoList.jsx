@@ -1,99 +1,11 @@
-// // import React from "react";
-
-// // const TodoList = ({ todos, onToggle, onDelete }) => {
-// //   return (
-// //     <ul>
-// //       {todos.map((todo, index) => (
-// //         <li key={index}>
-// //           <input
-// //             type="checkbox"
-// //             checked={todo.completed}
-// //             onChange={() => onToggle(index)}
-// //           />
-// //           <span
-// //             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-// //           >
-// //             {todo.text}
-// //           </span>
-// //           <button onClick={() => onDelete(index)}>Видалити</button>
-// //         </li>
-// //       ))}
-// //     </ul>
-// //   );
-// // };
-
-// // export default TodoList;
-
-// import React, { useState } from "react";
-// import "./todolist.css";
-
-// const TodoList = ({ todos, onToggle, onDelete, onEdit }) => {
-//   const [editIndex, setEditIndex] = useState(-1);
-//   const [editText, setEditText] = useState("");
-
-//   const handleEditStart = (index, text) => {
-//     setEditIndex(index);
-//     setEditText(text);
-//   };
-
-//   const handleEditSave = (index) => {
-//     if (editText.trim() !== "") {
-//       onEdit(index, editText.trim());
-//       setEditIndex(-1);
-//       setEditText("");
-//     }
-//   };
-
-//   const handleEditCancel = () => {
-//     setEditIndex(-1);
-//     setEditText("");
-//   };
-
-//   return (
-//     <ul>
-//       {todos.map((todo, index) => (
-//         <li key={index}>
-//           {editIndex === index ? (
-//             <>
-//               <input
-//                 type="text"
-//                 value={editText}
-//                 onChange={(e) => setEditText(e.target.value)}
-//               />
-//               <button onClick={() => handleEditSave(index)}>Зберегти</button>
-//               <button onClick={handleEditCancel}>Скасувати</button>
-//             </>
-//           ) : (
-//             <>
-//               <input
-//                 type="checkbox"
-//                 checked={todo.completed}
-//                 onChange={() => onToggle(index)}
-//               />
-//               <span
-//                 style={{
-//                   textDecoration: todo.completed ? "line-through" : "none",
-//                 }}
-//               >
-//                 {todo.text}
-//               </span>
-//               <button onClick={() => handleEditStart(index, todo.text)}>
-//                 Редагувати
-//               </button>
-//               <button onClick={() => onDelete(index)}>Видалити</button>
-//             </>
-//           )}
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
-
-// export default TodoList;
-
 import React, { useState } from "react";
 import { useTodoContext } from "./TodoContext";
 import "./todolist.css";
+import { FcCheckmark } from "react-icons/fc";
+import { MdDeleteForever } from "react-icons/md";
+import { TiDelete } from "react-icons/ti";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
+import { LiaExchangeAltSolid } from "react-icons/lia";
 
 const AddTodo = () => {
   const { dispatch } = useTodoContext();
@@ -170,27 +82,41 @@ const TodoList = () => {
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
               />
-              <button onClick={() => handleEditSave(index)}>Зберегти</button>
-              <button onClick={handleEditCancel}>Скасувати</button>
+              <button onClick={() => handleEditSave(index)}>
+                <FcCheckmark />
+              </button>
+              <button onClick={handleEditCancel}>
+                <TiDelete />
+              </button>
             </>
           ) : (
             <>
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => handleToggleTodo(index)}
+              <IoIosCheckmarkCircleOutline
+                style={{ cursor: "pointer" }}
+                color={todo.completed ? "red" : "black"}
+                size={24}
+                onClick={() => handleToggleTodo(index)}
               />
               <span
                 style={{
+                  marginLeft: "8px",
                   textDecoration: todo.completed ? "line-through" : "none",
                 }}
               >
                 {todo.text}
               </span>
-              <button onClick={() => handleEditStart(index, todo.text)}>
-                Редагувати
+              <button
+                className="readbutton"
+                onClick={() => handleEditStart(index, todo.text)}
+              >
+                <LiaExchangeAltSolid />
               </button>
-              <button onClick={() => handleDeleteTodo(index)}>Видалити</button>
+              <button
+                className="readbutton"
+                onClick={() => handleDeleteTodo(index)}
+              >
+                <MdDeleteForever />
+              </button>
             </>
           )}
         </li>
