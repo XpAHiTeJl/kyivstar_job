@@ -106,13 +106,13 @@ const TodoList = () => {
                 {todo.text}
               </span>
               <button
-                className="readbutton"
+                className="readbutton-read"
                 onClick={() => handleEditStart(index, todo.text)}
               >
                 <LiaExchangeAltSolid />
               </button>
               <button
-                className="readbutton"
+                className="readbutton-delete"
                 onClick={() => handleDeleteTodo(index)}
               >
                 <MdDeleteForever />
