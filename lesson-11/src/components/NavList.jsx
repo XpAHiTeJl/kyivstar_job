@@ -10,7 +10,7 @@ export default function NavList() {
         <a
           href={item.href}
           key={item.name}
-          className="text-sm font-semibold leading-6 text-gray-900"
+          className="text-base font-semibold leading-6 text-gray-900"
         >
           {item.name}
         </a>

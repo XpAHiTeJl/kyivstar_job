@@ -37,14 +37,13 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <div className="fixed top-16 w-full max-w-sm px-4">
+    <div className="  w-full max-w-sm ">
       <Popover className="relative">
         {({ open }) => (
           <>
             <Popover.Button
               className={`
-                ${open ? "text-white" : "text-white/90"}
-                group inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75`}
+                group inline-flex items-center rounded-md bg-orange-700   text-base font-semibold  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75`}
             >
               <span>Solutions</span>
               <ChevronDownIcon

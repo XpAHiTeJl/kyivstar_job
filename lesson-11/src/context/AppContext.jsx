@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import Solutions from "../components/Solutionitem";
 
 export const Context = createContext(null);
 
