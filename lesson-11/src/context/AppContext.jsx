@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import Solutions from "../components/Solutionitem";
 
 export const Context = createContext(null);
 
@@ -10,7 +11,6 @@ const AppContext = ({ children }) => {
           { name: "Product", href: "#" },
           { name: "Features", href: "#" },
           { name: "Marketplace", href: "#" },
-
           { name: "Company", href: "#" },
         ],
       }}

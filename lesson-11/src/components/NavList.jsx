@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../context/AppContext";
+import Solutions from "./Solutionitem";
 
 export default function NavList() {
   const { navigation } = useContext(Context);
@@ -14,6 +15,7 @@ export default function NavList() {
           {item.name}
         </a>
       ))}
+      <Solutions></Solutions>
     </>
   );
 }
