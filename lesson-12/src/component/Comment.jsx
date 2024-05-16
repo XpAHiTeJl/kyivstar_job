@@ -24,14 +24,11 @@ const CommentCard = ({ username }) => {
   const handleDelete = (index) => {
     const newReplies = replies.filter((_, i) => i !== index);
     setReplies(newReplies);
-    console.log("Комментарий удален");
   };
-  const handleEdit = (index) => {
-    // Здесь должен быть код для редактирования комментария
-    const newReplies = [...replies];
-    const replyToEdit = newReplies[index];
-
-    console.log("Редактирование комментария:", replyToEdit);
+  const handleSaveEditedText = (editedText, index) => {
+    const updatedReplies = [...replies];
+    updatedReplies[index] = editedText;
+    setReplies(updatedReplies);
   };
 
   return (
@@ -122,8 +119,8 @@ const CommentCard = ({ username }) => {
         {replies.map((reply, index) => (
           <div key={index} className="flex bg-gray-100 p-3 rounded 	  ">
             <CommentForm
-              onEdit={() => handleEdit(index)}
               onDelete={() => handleDelete(index)}
+              onSave={(editedText) => handleSaveEditedText(editedText, index)}
             >
               {reply}
             </CommentForm>

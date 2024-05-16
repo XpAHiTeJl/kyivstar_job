@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function CommentForm({ children, onEdit, onDelete }) {
+export default function CommentForm({ children, onDelete, onSave }) {
+  const [isTextareaOpen, setIsTextareaOpen] = useState(false);
+  const [editedText, setEditedText] = useState(children);
+
+  const toggleTextarea = () => {
+    setIsTextareaOpen(!isTextareaOpen);
+    setEditedText(children);
+  };
+
+  const handleTextChange = (event) => {
+    setEditedText(event.target.value);
+  };
+
+  const handleSave = () => {
+    onSave(editedText);
+    setIsTextareaOpen(false);
+  };
+
   return (
     <div className="flex items-center space-x-4 w-screen">
       <div className="flex items-center">
         <div className="flex flex-col justify-between items-center space-x-1">
           <button className="text-gray-500 hover:text-gray-900">
-            {/* Иконка лайка */}
             <span>👍</span>
           </button>
           <span className="text-sm font-semibold">0</span>
           <button className="text-gray-500 hover:text-gray-900">
-            {/* Иконка дизлайка */}
             <span>👎</span>
           </button>
         </div>
@@ -32,7 +47,7 @@ export default function CommentForm({ children, onEdit, onDelete }) {
             </div>
             <div className="flex space-x-2">
               <button
-                onClick={onEdit}
+                onClick={toggleTextarea}
                 className="text-gray-500 hover:text-gray-900"
               >
                 {/* Иконка редактирования */}
@@ -48,9 +63,29 @@ export default function CommentForm({ children, onEdit, onDelete }) {
             </div>
           </div>
         </div>
-        <div className="break-words">
-          <p className="overflow-wrap break-word w-4/5">{children}</p>
-        </div>
+
+        {isTextareaOpen ? (
+          <textarea
+            className="mt-4 block w-full h-40 border border-gray-300 rounded-md px-3 py-2 resize-none"
+            value={editedText}
+            onChange={handleTextChange}
+          ></textarea>
+        ) : (
+          <div className="break-words">
+            <p className="overflow-wrap break-word w-4/5">{children}</p>
+          </div>
+        )}
+
+        {isTextareaOpen && (
+          <div className="flex justify-end mt-2">
+            <button
+              onClick={handleSave}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Сохранить
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
