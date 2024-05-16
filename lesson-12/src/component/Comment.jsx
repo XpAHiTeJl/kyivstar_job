@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CommentForm from "./CommentForm";
 
 const CommentCard = ({ username }) => {
   const [reply, setReply] = useState(false);
@@ -19,6 +20,18 @@ const CommentCard = ({ username }) => {
       setReplyText("");
       setReply(false);
     }
+  };
+  const handleDelete = (index) => {
+    const newReplies = replies.filter((_, i) => i !== index);
+    setReplies(newReplies);
+    console.log("Комментарий удален");
+  };
+  const handleEdit = (index) => {
+    // Здесь должен быть код для редактирования комментария
+    const newReplies = [...replies];
+    const replyToEdit = newReplies[index];
+
+    console.log("Редактирование комментария:", replyToEdit);
   };
 
   return (
@@ -80,8 +93,16 @@ const CommentCard = ({ username }) => {
       </div>
 
       {reply && (
-        <div className="mt-4">
+        <div className="mt-4 flex ">
           {/* Форма для ответа на комментарий */}
+          <div className="flex-shrink-0">
+            {/* Здесь может быть аватар пользователя */}
+            <img
+              className="h-10 w-10 rounded-full"
+              src="/path/to/avatar.jpg"
+              alt="Аватар пользователя"
+            />
+          </div>
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             rows="3"
@@ -97,10 +118,15 @@ const CommentCard = ({ username }) => {
           </button>
         </div>
       )}
-      <div className="space-y-2">
+      <div className="space-y-5 w-4/5	  ">
         {replies.map((reply, index) => (
-          <div key={index} className="bg-gray-100 p-3 rounded">
-            {reply}
+          <div key={index} className="flex bg-gray-100 p-3 rounded 	  ">
+            <CommentForm
+              onEdit={() => handleEdit(index)}
+              onDelete={() => handleDelete(index)}
+            >
+              {reply}
+            </CommentForm>
           </div>
         ))}
       </div>
