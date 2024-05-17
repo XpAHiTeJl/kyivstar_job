@@ -6,7 +6,6 @@ export default function CommentForm({ children, onDelete, onSave }) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editedText, setEditedText] = useState(children);
   const maxCharacters = 320;
-  const [isEdited, setIsEdited] = useState(false);
 
   const toggleTextarea = () => {
     setIsTextareaOpen(!isTextareaOpen);
@@ -16,7 +15,6 @@ export default function CommentForm({ children, onDelete, onSave }) {
   const handleTextChange = (event) => {
     if (event.target.value.length <= maxCharacters) {
       setEditedText(event.target.value);
-      setIsEdited(true);
     }
   };
 
