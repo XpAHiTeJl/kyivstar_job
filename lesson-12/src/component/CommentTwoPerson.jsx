@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CommentForm from "./CommentForm";
 
-const CommentCard = ({ username }) => {
+const CommentTwoPerson = ({ username }) => {
   const [reply, setReply] = useState(false);
   const [replyText, setReplyText] = useState("");
   const [replies, setReplies] = useState([]);
@@ -33,7 +33,7 @@ const CommentCard = ({ username }) => {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow space-y-4 w-4/5">
-      <div className="flex items-center space-x-4 ">
+      <div className="flex items-center space-x-4  ">
         {username !== "amyrobson" && (
           <div className="flex 	 items-center  ">
             <div className="flex flex-col justify-between  items-center space-x-1">
@@ -50,17 +50,18 @@ const CommentCard = ({ username }) => {
           </div>
         )}
         <div className="flex-shrink-0">
+          {/* Здесь может быть аватар пользователя */}
           <img
             width="48"
             height="48"
-            src="https://img.icons8.com/color/48/user-male-circle--v1.png"
-            alt="user-male-circle--v1"
+            src="https://img.icons8.com/color/48/guest-male--v1.png"
+            alt="guest-male--v1"
           />
         </div>
         <div className="flex-1	">
           <div className="flex justify-between">
             <div className="flex items-center ">
-              <h3 className="text-sm font-semibold">amyrobson</h3>
+              <h3 className="text-sm font-semibold">maxblagun</h3>
               <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
             </div>
             <div>
@@ -82,15 +83,16 @@ const CommentCard = ({ username }) => {
           </div>
 
           <p className="text-sm text-gray-600 mt-1">
-            Впечатляет! Хотя функция перетаскивания могла бы быть улучшена. Но в
-            целом выглядит невероятно. Вы точно попали в дизайн, и отзывчивость
-            на различных точках останова работает очень хорошо.
+            Ого, ваш проект выглядит потрясающе! Как долго вы кодируете? Я все
+            еще новичок, но думаю, что тоже хочу скоро погрузиться в React.
+            Возможно, вы подскажете мне, где я могу изучить React? Спасибо!
           </p>
         </div>
       </div>
 
       {reply && (
         <div className="mt-4 flex ">
+          {/* Форма для ответа на комментарий */}
           <div className="flex-shrink-0">
             {/* Здесь может быть аватар пользователя */}
             <img
@@ -115,7 +117,7 @@ const CommentCard = ({ username }) => {
           </button>
         </div>
       )}
-      <div className="space-y-5 w-4/5	 ">
+      <div className="space-y-5 w-4/5	  ">
         {replies.map((reply, index) => (
           <div key={index} className="flex bg-gray-100 p-3 rounded 	  ">
             <CommentForm
@@ -131,4 +133,4 @@ const CommentCard = ({ username }) => {
   );
 };
 
-export default CommentCard;
+export default CommentTwoPerson;

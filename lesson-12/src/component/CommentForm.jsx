@@ -24,7 +24,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
   };
 
   return (
-    <div className="flex items-center space-x-4 w-screen">
+    <div className="flex items-center justify-between space-x-4 w-screen  ">
       <div className="flex items-center">
         <div className="flex flex-col justify-between items-center space-x-1">
           <button className="text-gray-500 hover:text-gray-900">
@@ -40,13 +40,14 @@ export default function CommentForm({ children, onDelete, onSave }) {
         <div className="flex">
           {/* Здесь может быть аватар пользователя */}
           <img
-            className="h-10 w-10 rounded-full"
-            src="/path/to/avatar.jpg"
-            alt="Аватар пользователя"
+            width="40"
+            height="40"
+            src="https://img.icons8.com/office/40/guest-male--v1.png"
+            alt="guest-male--v1"
           />
           <div className="flex justify-between w-full">
             <div className="flex items-center">
-              <h3 className="text-sm font-semibold pl-5">NewPerson</h3>
+              <h3 className="text-sm font-semibold pl-5">juliusomo</h3>
               <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
             </div>
             <div className="flex space-x-2">
