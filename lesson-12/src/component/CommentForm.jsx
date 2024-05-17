@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import CommentDelete from "./CommentDelete";
 
 export default function CommentForm({ children, onDelete, onSave }) {
   const [isTextareaOpen, setIsTextareaOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editedText, setEditedText] = useState(children);
 
   const toggleTextarea = () => {
@@ -50,14 +52,12 @@ export default function CommentForm({ children, onDelete, onSave }) {
                 onClick={toggleTextarea}
                 className="text-gray-500 hover:text-gray-900"
               >
-                {/* Иконка редактирования */}
                 <span>✏️</span>
               </button>
               <button
-                onClick={onDelete}
+                onClick={() => setIsDeleteDialogOpen(true)}
                 className="text-gray-500 hover:text-gray-900"
               >
-                {/* Иконка удаления */}
                 <span>🗑️</span>
               </button>
             </div>
@@ -87,6 +87,12 @@ export default function CommentForm({ children, onDelete, onSave }) {
           </div>
         )}
       </div>
+
+      <CommentDelete
+        open={isDeleteDialogOpen}
+        setOpen={setIsDeleteDialogOpen}
+        onDelete={onDelete}
+      />
     </div>
   );
 }
