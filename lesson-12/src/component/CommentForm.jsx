@@ -95,10 +95,9 @@ export default function CommentForm({ children, onDelete, onSave }) {
           <div className="flex justify-end mt-2">
             <button
               onClick={handleSave}
-              disabled={!isEdited || editedText.trim() === ""}
+              disabled={editedText.trim() === ""}
               className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
-                (!isEdited || editedText.trim() === "") &&
-                "opacity-50 cursor-not-allowed"
+                editedText.trim() === "" && "opacity-50 cursor-not-allowed"
               }`}
             >
               Сохранить
