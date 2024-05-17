@@ -5,6 +5,8 @@ export default function CommentForm({ children, onDelete, onSave }) {
   const [isTextareaOpen, setIsTextareaOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editedText, setEditedText] = useState(children);
+  const maxCharacters = 320;
+  const [isEdited, setIsEdited] = useState(false);
 
   const toggleTextarea = () => {
     setIsTextareaOpen(!isTextareaOpen);
@@ -12,7 +14,10 @@ export default function CommentForm({ children, onDelete, onSave }) {
   };
 
   const handleTextChange = (event) => {
-    setEditedText(event.target.value);
+    if (event.target.value.length <= maxCharacters) {
+      setEditedText(event.target.value);
+      setIsEdited(true);
+    }
   };
 
   const handleSave = () => {
@@ -33,7 +38,6 @@ export default function CommentForm({ children, onDelete, onSave }) {
           </button>
         </div>
       </div>
-
       <div className="flex flex-col w-11/12">
         <div className="flex">
           {/* Здесь может быть аватар пользователя */}
@@ -50,13 +54,19 @@ export default function CommentForm({ children, onDelete, onSave }) {
             <div className="flex space-x-2">
               <button
                 onClick={toggleTextarea}
-                className="text-gray-500 hover:text-gray-900"
+                className={`${
+                  isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
+                }`}
+                disabled={isTextareaOpen}
               >
                 <span>✏️</span>
               </button>
               <button
                 onClick={() => setIsDeleteDialogOpen(true)}
-                className="text-gray-500 hover:text-gray-900"
+                className={`${
+                  isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
+                }`}
+                disabled={isTextareaOpen}
               >
                 <span>🗑️</span>
               </button>
@@ -65,11 +75,16 @@ export default function CommentForm({ children, onDelete, onSave }) {
         </div>
 
         {isTextareaOpen ? (
-          <textarea
-            className="mt-4 block w-full h-40 border border-gray-300 rounded-md px-3 py-2 resize-none"
-            value={editedText}
-            onChange={handleTextChange}
-          ></textarea>
+          <div>
+            <textarea
+              className="mt-4 block w-full h-40 border border-gray-300 rounded-md px-3 py-2 resize-none"
+              value={editedText}
+              onChange={handleTextChange}
+            ></textarea>
+            <div className="text-right text-sm text-gray-500">
+              {maxCharacters - editedText.length} символов осталось
+            </div>
+          </div>
         ) : (
           <div className="break-words">
             <p className="overflow-wrap break-word w-4/5">{children}</p>
@@ -80,7 +95,11 @@ export default function CommentForm({ children, onDelete, onSave }) {
           <div className="flex justify-end mt-2">
             <button
               onClick={handleSave}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              disabled={!isEdited || editedText.trim() === ""}
+              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+                (!isEdited || editedText.trim() === "") &&
+                "opacity-50 cursor-not-allowed"
+              }`}
             >
               Сохранить
             </button>
