@@ -26,9 +26,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
 
   return (
     <div className="flex items-center justify-between space-x-4 w-screen   ">
-      <div className="flex items-center ">
-        <CommentVote />
-      </div>
+      <CommentVote votes={2} />
       <div className="flex flex-col w-11/12">
         <div className="flex">
           <img
@@ -40,6 +38,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
           <div className="flex justify-between w-full">
             <div className="flex items-center">
               <h3 className="text-sm font-semibold pl-5">juliusomo</h3>
+              <span className="ml-4 bg-blue-500 text-white px-3	">you</span>
               <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
             </div>
             <div className="flex space-x-2">
@@ -68,7 +67,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
         {isTextareaOpen ? (
           <div>
             <textarea
-              className="mt-4 block w-full h-40 border border-gray-300 rounded-md px-3 py-2 resize-none"
+              className="mt-4 block w-full h-40 border border-gray-500 rounded-md px-3 py-2 resize-none"
               value={editedText}
               onChange={handleTextChange}
             ></textarea>
@@ -78,7 +77,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
           </div>
         ) : (
           <div className="break-words">
-            <p className="overflow-wrap break-word w-4/5">{children}</p>
+            <p className="overflow-wrap break-word w-4/5 mt-5">{children}</p>
           </div>
         )}
         {isTextareaOpen && (
