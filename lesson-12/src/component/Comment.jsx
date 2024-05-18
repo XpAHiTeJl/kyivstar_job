@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import CommentForm from "./CommentForm";
+import CommentVote from "./CommentVote";
+import CommentReply from "./CommentReply";
 
 const CommentCard = ({ username }) => {
   const [reply, setReply] = useState(false);
   const [replyText, setReplyText] = useState("");
   const [replies, setReplies] = useState([]);
+  const maxCharacters = 320;
 
   const handleReplyClick = () => {
     setReply(!reply);
@@ -32,21 +35,11 @@ const CommentCard = ({ username }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-4/5">
+    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-3/5">
       <div className="flex items-center space-x-4 ">
         {username !== "amyrobson" && (
           <div className="flex 	 items-center  ">
-            <div className="flex flex-col justify-between  items-center space-x-1">
-              <button className="text-gray-500 hover:text-gray-900">
-                {/* Иконка лайка */}
-                <span>👍</span>
-              </button>
-              <span className="text-sm font-semibold">12</span>
-              <button className="text-gray-500 hover:text-gray-900">
-                {/* Иконка дизлайка */}
-                <span>👎</span>
-              </button>
-            </div>
+            <CommentVote></CommentVote>
           </div>
         )}
         <div className="flex-shrink-0">
@@ -65,18 +58,25 @@ const CommentCard = ({ username }) => {
             </div>
             <div>
               <button
-                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                className=" hover:text-current	 text-indigo-500 font-bold py-2 px-4 	 inline-flex items-center"
                 onClick={handleReplyClick}
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 mr-3"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                  />
+                </svg>
                 <span>Ответить</span>
                 {/* Иконка ответа */}
-                <svg
-                  className="fill-current w-4 h-4 ml-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M0,0 L20,10 L0,20 L7,10 L0,0 Z" />
-                </svg>
               </button>
             </div>
           </div>
@@ -92,7 +92,6 @@ const CommentCard = ({ username }) => {
       {reply && (
         <div className="mt-4 flex ">
           <div className="flex-shrink-0">
-            {/* Здесь может быть аватар пользователя */}
             <img
               width="40"
               height="40"
@@ -100,13 +99,19 @@ const CommentCard = ({ username }) => {
               alt="guest-male--v1"
             />
           </div>
-          <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            rows="3"
-            placeholder="Напишите ваш ответ..."
-            value={replyText}
-            onChange={handleReplyChange}
-          ></textarea>
+          <div className="w-full">
+            <textarea
+              className="shadow  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              rows="3"
+              placeholder="Напишите ваш ответ..."
+              value={replyText}
+              onChange={handleReplyChange}
+            ></textarea>
+            <div className="text-right text-sm text-gray-500">
+              {maxCharacters - replyText.length} символов осталось
+            </div>
+          </div>
+
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
             onClick={submitReply}
@@ -115,9 +120,9 @@ const CommentCard = ({ username }) => {
           </button>
         </div>
       )}
-      <div className="space-y-5 w-4/5	 ">
+      <div className="space-y-5 w-4/5 ml-auto	 ">
         {replies.map((reply, index) => (
-          <div key={index} className="flex bg-gray-100 p-3 rounded 	  ">
+          <div key={index} className="flex bg-gray-100 p-3 rounded  	  ">
             <CommentForm
               onDelete={() => handleDelete(index)}
               onSave={(editedText) => handleSaveEditedText(editedText, index)}

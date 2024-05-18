@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CommentDelete from "./CommentDelete";
+import CommentVote from "./CommentVote";
 
 export default function CommentForm({ children, onDelete, onSave }) {
   const [isTextareaOpen, setIsTextareaOpen] = useState(false);
@@ -24,21 +25,12 @@ export default function CommentForm({ children, onDelete, onSave }) {
   };
 
   return (
-    <div className="flex items-center justify-between space-x-4 w-screen  ">
-      <div className="flex items-center">
-        <div className="flex flex-col justify-between items-center space-x-1">
-          <button className="text-gray-500 hover:text-gray-900">
-            <span>👍</span>
-          </button>
-          <span className="text-sm font-semibold">0</span>
-          <button className="text-gray-500 hover:text-gray-900">
-            <span>👎</span>
-          </button>
-        </div>
+    <div className="flex items-center justify-between space-x-4 w-screen   ">
+      <div className="flex items-center ">
+        <CommentVote />
       </div>
       <div className="flex flex-col w-11/12">
         <div className="flex">
-          {/* Здесь может быть аватар пользователя */}
           <img
             width="40"
             height="40"
@@ -89,7 +81,6 @@ export default function CommentForm({ children, onDelete, onSave }) {
             <p className="overflow-wrap break-word w-4/5">{children}</p>
           </div>
         )}
-
         {isTextareaOpen && (
           <div className="flex justify-end mt-2">
             <button

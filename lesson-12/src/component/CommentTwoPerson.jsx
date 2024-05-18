@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CommentForm from "./CommentForm";
+import CommentVote from "./CommentVote";
 
 const CommentTwoPerson = ({ username }) => {
   const [reply, setReply] = useState(false);
@@ -32,25 +33,10 @@ const CommentTwoPerson = ({ username }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-4/5">
+    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-3/5">
       <div className="flex items-center space-x-4  ">
-        {username !== "amyrobson" && (
-          <div className="flex 	 items-center  ">
-            <div className="flex flex-col justify-between  items-center space-x-1">
-              <button className="text-gray-500 hover:text-gray-900">
-                {/* Иконка лайка */}
-                <span>👍</span>
-              </button>
-              <span className="text-sm font-semibold">12</span>
-              <button className="text-gray-500 hover:text-gray-900">
-                {/* Иконка дизлайка */}
-                <span>👎</span>
-              </button>
-            </div>
-          </div>
-        )}
+        {username !== "amyrobson" && <CommentVote></CommentVote>}
         <div className="flex-shrink-0">
-          {/* Здесь может быть аватар пользователя */}
           <img
             width="48"
             height="48"
@@ -66,18 +52,25 @@ const CommentTwoPerson = ({ username }) => {
             </div>
             <div>
               <button
-                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+                className=" hover:text-current	 text-indigo-500 font-bold py-2 px-4 	 inline-flex items-center"
                 onClick={handleReplyClick}
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 mr-3"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                  />
+                </svg>
                 <span>Ответить</span>
                 {/* Иконка ответа */}
-                <svg
-                  className="fill-current w-4 h-4 ml-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M0,0 L20,10 L0,20 L7,10 L0,0 Z" />
-                </svg>
               </button>
             </div>
           </div>
