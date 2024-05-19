@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentVote from "./CommentVote";
 import CommentReply from "./CommentReply";
+import CommentThree from "./CommentThree";
 
-const CommentCard = ({ username }) => {
+const CommentTwoPerson = ({ username }) => {
   const [reply, setReply] = useState(false);
   const [replies, setReplies] = useState([]);
 
@@ -23,13 +24,11 @@ const CommentCard = ({ username }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-6/12	">
+    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-6/12 m-5	">
       <div className="flex items-center space-x-4 ">
-        {username !== "amyrobson" && (
-          <div className="flex items-center">
-            <CommentVote initialVotes={5} />
-          </div>
-        )}
+        <div className="flex items-center">
+          <CommentVote initialVotes={5} />
+        </div>
         <div className="flex-shrink-0">
           <img
             width="48"
@@ -42,7 +41,7 @@ const CommentCard = ({ username }) => {
           <div className="flex justify-between">
             <div className="flex items-center">
               <h3 className="text-sm font-semibold">maxblagun</h3>
-              <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
+              <span className="text-xs text-gray-500 pl-4">2 недели назад</span>
             </div>
             <div>
               <button
@@ -94,8 +93,9 @@ const CommentCard = ({ username }) => {
           </div>
         ))}
       </div>
+      <CommentThree />
     </div>
   );
 };
 
-export default CommentCard;
+export default CommentTwoPerson;

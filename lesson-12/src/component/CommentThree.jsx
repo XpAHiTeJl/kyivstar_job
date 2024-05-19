@@ -3,7 +3,7 @@ import CommentForm from "./CommentForm";
 import CommentVote from "./CommentVote";
 import CommentReply from "./CommentReply";
 
-const CommentCard = () => {
+const CommentThree = ({ username }) => {
   const [reply, setReply] = useState(false);
   const [replies, setReplies] = useState([]);
 
@@ -23,24 +23,24 @@ const CommentCard = () => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-6/12	 m-5">
-      <div className="flex items-center space-x-4 ">
+    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-4/5 ml-auto	 m-5	">
+      <div className="flex items-center space-x-4  ">
         <div className="flex items-center">
-          <CommentVote initialVotes={12} />
+          <CommentVote initialVotes={5} />
         </div>
         <div className="flex-shrink-0">
           <img
-            width="50"
-            height="50"
-            src="https://img.icons8.com/bubbles/50/user-male-circle.png"
+            width="48"
+            height="48"
+            src="https://img.icons8.com/doodle/48/user-male-circle.png"
             alt="user-male-circle"
           />
         </div>
         <div className="flex-1">
           <div className="flex justify-between">
             <div className="flex items-center">
-              <h3 className="text-sm font-semibold">amyrobson</h3>
-              <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
+              <h3 className="text-sm font-semibold">ramsesmiron</h3>
+              <span className="text-xs text-gray-500 pl-4">1 неделю назад</span>
             </div>
             <div>
               <button
@@ -96,4 +96,4 @@ const CommentCard = () => {
   );
 };
 
-export default CommentCard;
+export default CommentThree;
