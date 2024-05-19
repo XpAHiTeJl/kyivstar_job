@@ -67,7 +67,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
         {isTextareaOpen ? (
           <div>
             <textarea
-              className="mt-4 block  h-40 border border-gray-500 rounded-md px-3 py-2 resize-none"
+              className=" w-full	mt-4 block  h-40 border border-gray-500 rounded-md px-3 py-2 resize-none"
               value={editedText}
               onChange={handleTextChange}
               maxLength={maxCharacters}
