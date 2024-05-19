@@ -30,7 +30,7 @@ export default function CommentForm({ children, onDelete, onSave }) {
 
   return (
     <div className="flex items-center justify-between space-x-4  w-full">
-      <CommentVote votes={2} />
+      <CommentVote initialVotes={5} disabled={true} />
       <div className="flex flex-col w-11/12	">
         <div className="flex  ">
           <img
