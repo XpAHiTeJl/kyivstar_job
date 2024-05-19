@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import CommentDelete from "./CommentDelete";
 import CommentVote from "./CommentVote";
+import CommentData from "./CommentData";
 
 export default function CommentForm({ children, onDelete, onSave }) {
   const [isTextareaOpen, setIsTextareaOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editedText, setEditedText] = useState(children);
+
+  const currentDate = new Date().toISOString();
   const maxCharacters = 320;
 
   const toggleTextarea = () => {
@@ -40,7 +43,8 @@ export default function CommentForm({ children, onDelete, onSave }) {
           <div className="flex items-center ">
             <h3 className="text-sm font-semibold pl-5">juliusomo</h3>
             <span className="ml-4 bg-blue-500 text-white px-3">you</span>
-            <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
+            <CommentData date={currentDate} />
+            {/* <span className="text-xs text-gray-500 pl-4">1 месяц назад</span> */}
           </div>
           <div className="flex ml-auto  space-x-2">
             <button

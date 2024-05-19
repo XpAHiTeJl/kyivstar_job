@@ -23,7 +23,7 @@ const CommentCard = () => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-3/5 m-5">
+    <div className="bg-white p-4 rounded-lg shadow space-y-4 w-6/12	 m-5">
       <div className="flex items-center space-x-4 ">
         <div className="flex items-center">
           <CommentVote votes={12} />
