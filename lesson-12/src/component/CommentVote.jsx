@@ -2,16 +2,19 @@ import React, { useState } from "react";
 
 export default function CommentVote({ initialVotes, disabled }) {
   const [votes, setVotes] = useState(initialVotes);
+  const [hasVoted, setHasVoted] = useState(false);
 
   const handleUpvote = () => {
     if (!disabled) {
       setVotes(votes + 1);
+      setHasVoted(true);
     }
   };
 
   const handleDownvote = () => {
     if (!disabled) {
       setVotes(votes - 1);
+      setHasVoted(true);
     }
   };
 
@@ -20,7 +23,7 @@ export default function CommentVote({ initialVotes, disabled }) {
       <button
         onClick={handleUpvote}
         className="text-gray-500 hover:text-gray-900"
-        disabled={disabled}
+        disabled={hasVoted}
       >
         {/* SVG for upvote */}
         <svg
@@ -42,7 +45,7 @@ export default function CommentVote({ initialVotes, disabled }) {
       <button
         onClick={handleDownvote}
         className="text-gray-500 hover:text-gray-900"
-        disabled={disabled}
+        disabled={hasVoted}
       >
         {/* SVG for downvote */}
         <svg
