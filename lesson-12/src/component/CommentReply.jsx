@@ -34,6 +34,7 @@ const CommentReply = ({ setReplies, replies, setReply }) => {
           placeholder="Напишите ваш ответ..."
           value={replyText}
           onChange={handleReplyChange}
+          maxLength={maxCharacters}
         ></textarea>
         <div className="text-right text-sm text-gray-500">
           {maxCharacters - replyText.length} символов осталось

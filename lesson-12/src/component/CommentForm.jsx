@@ -14,8 +14,9 @@ export default function CommentForm({ children, onDelete, onSave }) {
   };
 
   const handleTextChange = (event) => {
-    if (event.target.value.length <= maxCharacters) {
-      setEditedText(event.target.value);
+    const { value } = event.target;
+    if (value.length <= maxCharacters) {
+      setEditedText(value);
     }
   };
 
@@ -25,59 +26,59 @@ export default function CommentForm({ children, onDelete, onSave }) {
   };
 
   return (
-    <div className="flex items-center justify-between space-x-4 w-screen   ">
+    <div className="flex items-center justify-between space-x-4  w-full">
       <CommentVote votes={2} />
-      <div className="flex flex-col w-11/12">
-        <div className="flex">
+      <div className="flex flex-col w-11/12	">
+        <div className="flex  ">
           <img
             width="40"
             height="40"
             src="https://img.icons8.com/office/40/guest-male--v1.png"
             alt="guest-male--v1"
           />
-          <div className="flex justify-between w-full">
-            <div className="flex items-center">
-              <h3 className="text-sm font-semibold pl-5">juliusomo</h3>
-              <span className="ml-4 bg-blue-500 text-white px-3	">you</span>
-              <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
-            </div>
-            <div className="flex space-x-2">
-              <button
-                onClick={toggleTextarea}
-                className={`${
-                  isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
-                }`}
-                disabled={isTextareaOpen}
-              >
-                <span>✏️</span>
-              </button>
-              <button
-                onClick={() => setIsDeleteDialogOpen(true)}
-                className={`${
-                  isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
-                }`}
-                disabled={isTextareaOpen}
-              >
-                <span>🗑️</span>
-              </button>
-            </div>
+
+          <div className="flex items-center ">
+            <h3 className="text-sm font-semibold pl-5">juliusomo</h3>
+            <span className="ml-4 bg-blue-500 text-white px-3">you</span>
+            <span className="text-xs text-gray-500 pl-4">1 месяц назад</span>
+          </div>
+          <div className="flex ml-auto  space-x-2">
+            <button
+              onClick={toggleTextarea}
+              className={`${
+                isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
+              }`}
+              disabled={isTextareaOpen}
+            >
+              <span>✏️</span>
+            </button>
+            <button
+              onClick={() => setIsDeleteDialogOpen(true)}
+              className={`${
+                isTextareaOpen ? "cursor-not-allowed opacity-50" : ""
+              }`}
+              disabled={isTextareaOpen}
+            >
+              <span>🗑️</span>
+            </button>
           </div>
         </div>
 
         {isTextareaOpen ? (
           <div>
             <textarea
-              className="mt-4 block w-full h-40 border border-gray-500 rounded-md px-3 py-2 resize-none"
+              className="mt-4 block  h-40 border border-gray-500 rounded-md px-3 py-2 resize-none"
               value={editedText}
               onChange={handleTextChange}
+              maxLength={maxCharacters}
             ></textarea>
             <div className="text-right text-sm text-gray-500">
               {maxCharacters - editedText.length} символов осталось
             </div>
           </div>
         ) : (
-          <div className="break-words">
-            <p className="overflow-wrap break-word w-4/5 mt-5">{children}</p>
+          <div className="break-words ">
+            <p className="overflow-wrap break-word  mt-5">{children}</p>
           </div>
         )}
         {isTextareaOpen && (
