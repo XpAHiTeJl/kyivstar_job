@@ -27,7 +27,7 @@ const CommentCard = ({ username }) => {
       <div className="flex items-center space-x-4 ">
         {username !== "amyrobson" && (
           <div className="flex items-center">
-            <CommentVote votes={5} />
+            <CommentVote initialVotes={5} />
           </div>
         )}
         <div className="flex-shrink-0">
