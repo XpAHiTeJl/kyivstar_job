@@ -18,7 +18,7 @@ export default function Header() {
   ];
 
   return (
-    <header className=" bg-white ">
+    <header className="header-img bg-white ">
       <div className="flex flex-col mx-3  lg:mx-40  ">
         <div className=" inset-x-0 top-0 z-50  ">
           <nav
@@ -63,9 +63,9 @@ export default function Header() {
             </DialogPanel>
           </Dialog>
         </div>
-        <div className="  lg:px-8   ">
+        <div className="lg:px-8   ">
           <div className=" max-w-3xl py-32 sm:py-48 lg:py-56 	">
-            <div className="border-4 p-10   ">
+            <div data-aos="flip-left" className="border-4 p-10">
               <span className="text-4xl  font-light	  sm:text-8xl  uppercase text-white    ">
                 immersive experiences that deliver
               </span>
