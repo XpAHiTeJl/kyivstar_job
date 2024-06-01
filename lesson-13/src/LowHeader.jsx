@@ -3,10 +3,10 @@ import "./LowHeader.css";
 
 export default function LowHeader() {
   return (
-    <div className="flex flex-col   mx-3  lg:mx-40 px-8 ">
-      <div className=" my-36     ">
-        <div class="lowerHeader-img relative ">
-          <div className="absolute lg:w-2/5 h-80	  bg-white bottom-0 right-64  flex flex-col	 justify-between pl-16	">
+    <div className="flex flex-col   mx-3  lg:mx-56   ">
+      <div className=" my-36 ">
+        <div class="lowerHeader-img relative  ">
+          <div className="absolute lg:w-2/5 h-80 bg-white bottom-0 right-56  flex flex-col	 justify-between pl-16	">
             <h1 className="uppercase text-5xl pt-12 ">
               the leader in interactive vr
             </h1>
