@@ -4,9 +4,8 @@ export default function Logo() {
   return (
     <div>
       <svg
-        className=""
-        width="192"
-        height="32"
+        class="w-28 h-8 sm:w-48 sm:h-8 ..."
+        viewBox="0 0 192 32"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
