@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <div className=" bg-black ">
       <div className=" lg:flex justify-between  lg:flex mx-3  lg:mx-56 py-3  ">
-        <div className="flex flex-col  pt-5  items-center	">
+        <div className="flex flex-col  pt-5  	">
           <Logo></Logo>
           <NavigationFooter navigation={navigation}> </NavigationFooter>
         </div>
