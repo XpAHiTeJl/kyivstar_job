@@ -63,6 +63,7 @@ export default function OurCreations() {
     <div className="mt-16 grid grid-cols-1  lg:grid-cols-4 gap-5 justify-items-center ">
       {data.map((item, index) => (
         <div
+          data-aos="zoom-in-right"
           key={index}
           className=" lg:w-full	  overflow-hidden shadow-lg relative group "
         >
@@ -75,7 +76,10 @@ export default function OurCreations() {
             />
           </picture>
           <div className="absolute inset-0 bg-gradient-to-r  lg:bg-gradient-to-t from-gray-800 opacity-60 via-transparent to-transparent"></div>
-          <span className="uppercase absolute text-xl mb-5 bottom-0 left-7 w-28	 text-white group-hover:text-black  transition duration-300 ease-in-out">
+          <span
+            data-aos="zoom-out-left"
+            className="uppercase absolute text-xl mb-5 bottom-0 left-7 w-28	 text-white group-hover:text-black  transition duration-300 ease-in-out"
+          >
             {item.name}
           </span>
         </div>
