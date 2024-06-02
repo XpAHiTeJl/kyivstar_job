@@ -60,22 +60,22 @@ const data = [
 
 export default function OurCreations() {
   return (
-    <div className="mt-16 grid grid-cols-1  lg:grid-cols-4 gap-4  ">
+    <div className="mt-16 grid grid-cols-1  lg:grid-cols-4 gap-5 justify-items-center ">
       {data.map((item, index) => (
         <div
           key={index}
-          className=" lg:w-4/6  overflow-hidden shadow-lg relative group "
+          className=" lg:w-full	  overflow-hidden shadow-lg relative group "
         >
           <picture>
             <source media="(max-width: 767px)" srcSet={item.imgSrcMobile} />
             <img
-              className="group-hover:opacity-50 transition duration-300 ease-in-out"
+              className="w-full	 group-hover:opacity-50  transition duration-300 ease-in-out"
               src={item.imgSrc}
               alt={item.name}
             />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-r lg:bg-gradient-to-t from-gray-700 via-transparent to-transparent"></div>
-          <span className="uppercase absolute text-xl mb-5 bottom-0 left-7 w-28	 text-white group-hover:text-black transition duration-300 ease-in-out">
+          <div className="absolute inset-0 bg-gradient-to-r  lg:bg-gradient-to-t from-gray-800 opacity-60 via-transparent to-transparent"></div>
+          <span className="uppercase absolute text-xl mb-5 bottom-0 left-7 w-28	 text-white group-hover:text-black  transition duration-300 ease-in-out">
             {item.name}
           </span>
         </div>

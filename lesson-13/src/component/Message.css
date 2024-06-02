@@ -1,10 +1,11 @@
-.border-text {
+.footer-button {
     display: inline-block;
     overflow: hidden;
+    padding: 10px;
     position: relative;
 }
 
-.border-text:after {
+.footer-button:after {
     transition: all 0.4s ease-out;
     content: ' ';
     display: block;
@@ -16,6 +17,6 @@
     left: -100%;
 }
 
-.border-text:hover:after {
+.footer-button:hover:after {
     left: 0;
 }

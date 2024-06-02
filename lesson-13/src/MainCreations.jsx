@@ -13,7 +13,7 @@ export default function MainCreations() {
       <div>
         <OurCreations></OurCreations>
       </div>
-      <button className="bg-white lg:bg-black text-black lg:text-white w-40 p-2 lg:w-40 uppercase   border-2 border-black lg:invisible mt-10 ">
+      <button className="bg-white lg:bg-black text-black lg:text-white w-40 p-2 lg:w-40 uppercase   border-2 border-black lg:invisible m-10 ">
         see all
       </button>
     </main>
