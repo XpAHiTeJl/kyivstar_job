@@ -54,9 +54,9 @@ const message = [
 
 export default function Message() {
   return (
-    <div className="flex   ">
+    <div className="flex pb-3 ">
       {message.map((item, index) => (
-        <button className="footer-button m-1" key={index}>
+        <button className="footer-button " key={index}>
           {item.imgSrc ? item.imgSrc : <img src={item.href} alt={item.name} />}
         </button>
       ))}

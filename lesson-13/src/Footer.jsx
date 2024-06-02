@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "./component/Logo";
 import Message from "./component/Message";
-import Navigation from "./component/Navigation";
 import Reserved from "./component/Reserved";
+import NavigationFooter from "./component/NavigationFooter";
 
 export default function Footer() {
   const navigation = [
@@ -15,13 +15,14 @@ export default function Footer() {
 
   return (
     <div className=" bg-black ">
-      <div className="flex mx-3  lg:mx-56 flex-col ">
-        <div className="flex justify-between mt-10	">
+      <div className=" lg:flex justify-between  lg:flex mx-3  lg:mx-56 py-3  ">
+        <div className="flex flex-col  pt-5  items-center	">
           <Logo></Logo>
-          <Message></Message>
+          <NavigationFooter navigation={navigation}> </NavigationFooter>
         </div>
-        <div className="flex items-center justify-between">
-          <Navigation navigation={navigation}></Navigation>
+        <div className="flex  flex-col pt-5 items-end   ">
+          <Message></Message>
+
           <Reserved></Reserved>
         </div>
       </div>
